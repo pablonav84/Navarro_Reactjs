@@ -9,10 +9,52 @@
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    margin-top: 250px;
+    margin-top: 200px;
     color: brown;
     background-color: white;
     border: brown solid 4px;
-    width: 1200px;
+    width: 1000px;
     height: 100px;
+}
+
+.card-content {
+   display: flex;
+   flex-direction:column;
+   justify-content: flex-end;
+   align-items: center;
+    width: 18rem;
+    border: 2px black solid;
+    border-radius: 12px;
+}
+
+.imagen-style {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 2px black solid;
+    width: 100%;
+    height: 200px;
+}
+
+.card-title {
+margin-top: 20px;
+}
+
+.card-body {
+    display:grid;
+    grid-template-columns: repeat(4, 300px);
+    row-gap: 10px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 220px;
+    width: 220px;
+}
+
+.buttom-card {
+    margin-bottom: 20px;
 }
