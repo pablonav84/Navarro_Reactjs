@@ -27,7 +27,7 @@ const NavBarComponent = () => {
           <Nav className="me-auto">
             <Nav.Link href="#link">Link</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              {cetegory.map((item, index) => {
+              {category.map((item, index) => {
                 return (
                   <NavDropdown.Item key={index} href="#action/3.1">
                     {item}
