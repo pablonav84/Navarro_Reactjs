@@ -1,4 +1,4 @@
-import Card from "react-bootstrap/Card";
+
 import Button from 'react-bootstrap/Button';
 import { useGetProductById } from "../hooks/useProducts";
 import { useParams } from "react-router-dom";
@@ -13,16 +13,14 @@ const {id} = useParams()
 const {productData} = useGetProductById(id)
 
   return (
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={productData.thumbnail} />
-          <Card.Body>
-            <Card.Title>{productData.title}</Card.Title>
-            <Card.Text>
-              {productData.description}
-            </Card.Text>
-            <div>{productData.price}</div>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
+    <div className="card-content" key={productData.id}>
+    <img className="imagen-style" src={productData.thumbnail} />
+      <div className="card-title" >{productData.title}</div>
+      <div className="card-text">
+        {productData.description}
+        <div>{productData.price}</div>
+      </div>
+      <Button className="buttom-card"variant="primary">Agregar Al Carrito</Button>
+      </div>
       );
 }

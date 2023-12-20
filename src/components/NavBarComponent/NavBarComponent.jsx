@@ -1,7 +1,6 @@
 //import de logo y estilos
 import "./NavBar.css"
 import logo from '/logo2.jpeg'
-import "../CartWitget/CartWitget"
 
 //import de boostrap
 import Container from 'react-bootstrap/Container';
@@ -10,8 +9,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWitget from "../CartWitget/CartWitget";
 import {Link} from "react-router-dom"
+import { useCategory } from "../../hooks/useCategory";
+
 
 const NavBarComponent = () => {
+  
+  const {category} = useCategory();
+  
   return (
     <Navbar expand="lg" className="bg-style navbar-dark">
       <Container>
@@ -23,15 +27,13 @@ const NavBarComponent = () => {
           <Nav className="me-auto">
             <Nav.Link href="#link">Link</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+              {cetegory.map((item, index) => {
+                return (
+                  <NavDropdown.Item key={index} href="#action/3.1">
+                    {item}
+                  </NavDropdown.Item>
+                );
+              })}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
