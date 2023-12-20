@@ -9,18 +9,18 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWitget from "../CartWitget/CartWitget";
+import {Link} from "react-router-dom"
 
 const NavBarComponent = () => {
   return (
     <Navbar expand="lg" className="bg-style navbar-dark">
       <Container>
-        <Navbar.Brand href="#Inicio">
+        <Link>
         <img src={logo} className="navbar-logo" alt="Zapas logo" />
-        </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">Link</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

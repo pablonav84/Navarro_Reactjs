@@ -2,7 +2,7 @@
 //A través de esta llamada voy a traer todos los productos al dom
 
 import {useState, useEffect} from "react";
-import {getProducts} from "../services";
+import {getProducts, getProductById} from "../services";
 
 /**
  * @description Custom Hooks para obtener productos
@@ -23,4 +23,22 @@ export const useGetProducts = (limit = 10) => {
 
         //Devuelve un objeto
         return {productsData}
+}
+
+export const useGetProductById = (id) => {
+
+  const [productData, setProductData] = useState({});
+
+  useEffect(() => {
+    getProductById(id)
+    .then((response) => {
+      setProductData(response.data)
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    }, []);
+
+    //Devuelve un objeto
+    return {productData}
 }
