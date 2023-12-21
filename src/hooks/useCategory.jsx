@@ -2,7 +2,7 @@ import {useEffect, useState} from "react"
 import { getCategories } from "../services"
 
 export const useCategory = () => {
-    const [category, setCategory] = useState([])
+    const [Category, setCategory] = useState([])
 
   useEffect(() => {
 getCategories()
@@ -10,5 +10,5 @@ getCategories()
 .catch((err) => console.log(err));
   }, []);
   
-  return {category}
+  return {Category}
 };
