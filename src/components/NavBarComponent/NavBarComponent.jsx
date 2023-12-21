@@ -19,7 +19,7 @@ const NavBarComponent = () => {
   return (
     <Navbar expand="lg" className="bg-style navbar-dark">
       <Container>
-        <Link>
+        <Link to="/">
         <img src={logo} className="navbar-logo" alt="Zapas logo" />
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -30,7 +30,7 @@ const NavBarComponent = () => {
               {category.map((item, index) => {
                 return (
                   <NavDropdown.Item key={index} href="#action/3.1">
-                    {item}
+                    <Link to={`/category/${item}`}>{item}</Link>
                   </NavDropdown.Item>
                 );
               })}

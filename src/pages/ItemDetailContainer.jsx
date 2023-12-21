@@ -8,9 +8,9 @@ import { useParams } from "react-router-dom";
 
 export const ItemDetailContainer = () => {
 
-const {id} = useParams()
+const {productId} = useParams()
 
-const {productData} = useGetProductById(id)
+const {productData} = useGetProductById(productId)
 
   return (
     <div className="card-content" key={productData.id}>
