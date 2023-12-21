@@ -2,7 +2,7 @@
 //A través de esta llamada voy a traer todos los productos al dom
 
 import {useState, useEffect} from "react";
-import {getProducts, getProductById, getCategories, getProductsByCategory} from "../services";
+import {getCategories, getProducts, getProductById, getProductsByCategory} from "../services";
 
 /**
  * @description Custom Hooks para obtener productos
