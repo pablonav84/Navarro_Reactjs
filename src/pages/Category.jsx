@@ -9,7 +9,5 @@ export const Category = () => {
 
 const {productsData} = useGetProductsByCategory(id);
 
-  return (
-    <ItemListContainer greeting="Bienvenidos a Zapas Catamarca" productsData={productsData}/>
-  )
+  return <ItemListContainer greeting="Bienvenidos a Zapas Catamarca" productsData={productsData}/>;
 }
