@@ -1,5 +1,3 @@
-
-import Button from 'react-bootstrap/Button';
 import "./itemList.css"
 import { Link } from 'react-router-dom';
 
@@ -20,9 +18,8 @@ const ItemListContainer = ({greeting, productsData}) => {
         <div className="card-title" >{products.title}</div>
         <div className="card-text">
           {products.description}
-          <div>{products.price}</div>
+          <div>Precio ${products.price}</div>
         </div>
-        <Button className="buttom-card"variant="primary">Agregar Al Carrito</Button>
         </div>
   );
 })}

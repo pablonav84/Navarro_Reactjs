@@ -7,14 +7,16 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import CartWitget from "../CartWitget/CartWitget";
+
 import {Link} from "react-router-dom"
-import { useCategory } from "../../hooks/useCategory";
+import { useGetCategories } from "../../hooks/useProducts";
+import CartWitget from "../CartWitget/CartWitget";
 
 
 const NavBarComponent = () => {
   
-  const {category} = useCategory();
+  const {categories} = useGetCategories();
+  
   
   return (
     <Navbar expand="lg" className="bg-style navbar-dark">
@@ -26,18 +28,18 @@ const NavBarComponent = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              {category.map((item, index) => {
+            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+              {categories.map((category, index) => {
                 return (
-                  <NavDropdown.Item key={index} href="#action/3.1">
-                    <Link to={`/category/${item}`}>{item}</Link>
+                  <NavDropdown.Item key={index}>
+                    <Link key={index} to={`/category/${category}`}>{category} </Link>
                   </NavDropdown.Item>
                 );
               })}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <CartWitget/>
+        <CartWitget />
       </Container>
     </Navbar>
   )
