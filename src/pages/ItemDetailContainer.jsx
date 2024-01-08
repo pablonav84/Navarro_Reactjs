@@ -1,5 +1,5 @@
-import { Button } from "bootstrap";
 import { useGetProductById } from "../hooks/useProducts";
+import ItemCount from "../components/ItemCount";
 
 //Uso useParams para que al traer mi id sea dinamico
 import { useParams } from "react-router-dom";
@@ -19,8 +19,8 @@ const {productData} = useGetProductById(productId)
       <div className="card-text">
         {productData.description}
       </div>
-      <div>{productData.price}</div>
-      <Button className="buttom-card"variant="primary">Agregar Al Carrito</Button>
+      <div>Precio ${productData.price}</div>
+      <ItemCount/>
       </div>
       );
   }

@@ -1,6 +1,7 @@
 //import de logo y estilos
 import "./NavBar.css"
 import logo from '/logo2.jpeg'
+import CartWitget from "../CartWitget/CartWitget";
 
 //import de boostrap
 import Container from 'react-bootstrap/Container';
