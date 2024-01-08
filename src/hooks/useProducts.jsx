@@ -12,6 +12,8 @@ export const useGetProducts = (limit = 10) => {
     const [productsData, setProductsData] = useState([]);
 
     useEffect(() => {
+
+      setTimeout (() => {
         getProducts(limit)
         .then((response) => {
           setProductsData(response.data.products)
@@ -19,7 +21,8 @@ export const useGetProducts = (limit = 10) => {
         .catch((error) => {
           console.log(error);
         });
-        }, []);
+      }, 1000);
+    }, []);
 
         //Devuelve un objeto
         return {productsData}

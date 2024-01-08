@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import "./CartWitget.css"
+import "./CartWidget.css"
 
-const CartWitget = () => {
+const CartWidget = () => {
   const {count} = useContext(CartContext);
   return (
     <div className="seeCarrito">
@@ -12,4 +12,4 @@ const CartWitget = () => {
   )
 }
 
-export default CartWitget
+export default CartWidget

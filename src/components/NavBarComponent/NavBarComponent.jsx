@@ -1,7 +1,7 @@
 //import de logo y estilos
 import "./NavBar.css"
 import logo from '/logo2.jpeg'
-import CartWitget from "../CartWitget/CartWitget";
+import CartWidget from "../CartWidget/CartWidget";
 
 //import de boostrap
 import Container from 'react-bootstrap/Container';
@@ -38,7 +38,7 @@ const NavBarComponent = () => {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <CartWitget />
+        <CartWidget />
       </Container>
     </Navbar>
   )
