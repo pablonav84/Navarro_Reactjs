@@ -10,13 +10,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import {Link} from "react-router-dom"
 import { useGetCategories } from "../../hooks/useProducts";
-import CartWitget from "../CartWitget/CartWitget";
 
 
 const NavBarComponent = () => {
   
   const {categories} = useGetCategories();
-  
   
   return (
     <Navbar expand="lg" className="bg-style navbar-dark">
