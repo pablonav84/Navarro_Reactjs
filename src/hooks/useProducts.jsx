@@ -3,28 +3,28 @@
 
 import {useState, useEffect} from "react";
 import {getCategories, getProducts, getProductById, getProductsByCategory} from "../services";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 /**
  * @description Custom Hooks para obtener productos
  * @returns {Array}
  */
-export const useGetProducts = (limit = 10) => {
+export const useGetProducts = (C) => {
     const [productsData, setProductsData] = useState([]);
 
     useEffect(() => {
+      const db = getFirestore();
 
-      setTimeout (() => {
-        getProducts(limit)
-        .then((response) => {
-          setProductsData(response.data.products)
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      }, 1000);
+      const productCollection = collection(db, "products");
+
+      getDocs(productCollection).then((snapshot) => {
+        setProductsData(
+          snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        );
+      });
     }, []);
 
-        //Devuelve un objeto
+        
         return {productsData}
 }
 

@@ -16,12 +16,14 @@ const ItemListContainer = ({greeting, productsData}) => {
 
             return (
               <div className="card-content" key={products.id}>
-      <Link to={`/item/${products.id}`}><img className="imagen-style" src={products.thumbnail} /></Link>
-        <div className="card-title" >{products.title}</div>
+      <Link to={`/item/${products.id}`}><img className="imagen-style" src={products.img} /></Link>
+        <div className="card-title" >{products.nombre}</div>
         <div className="card-text">
-          {products.description}
-          <div>Precio ${products.price}</div>
-        </div>
+          {products.categoria}
+<div className="card-text">
+          Talle {products.talle}</div>
+          <div>Precio ${products.precio}</div>
+          </div>
         </div>
   );
 })}
