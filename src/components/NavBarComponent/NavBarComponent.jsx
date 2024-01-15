@@ -30,8 +30,13 @@ const NavBarComponent = () => {
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
               {categories.map((category, index) => {
                 return (
+<<<<<<< Updated upstream
                   <NavDropdown.Item key={index}>
                     <Link key={index} to={`/category/${category}`}>{category} </Link>
+=======
+                  <NavDropdown.Item key={index} href="#action/3.1">
+                    {item}
+>>>>>>> Stashed changes
                   </NavDropdown.Item>
                 );
               })}
