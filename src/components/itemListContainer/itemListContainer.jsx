@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 import { LoadingComponent } from "../LoadingComponent/LoadingComponent";
 import "./itemList.css"
-import { Link } from 'react-router-dom';
+
 
 const ItemListContainer = ({greeting, productsData}) => {
   

@@ -7,20 +7,22 @@ import { useParams } from "react-router-dom";
 
 export const ItemDetailContainer = () => {
 
-const {productId} = useParams()
+const {id} = useParams()
 
-const {productData} = useGetProductById(productId)
+const {productData} = useGetProductById("products", id)
 
   return (
     
     <div className="card-content" key={productData.id}>
-    <img className="imagen-style" src={productData.thumbnail} />
-      <div className="card-title" >{productData.title}</div>
-      <div className="card-text">
-        {productData.description}
-      </div>
-      <div>Precio ${productData.price}</div>
+    <img className="imagen-style" src={productData.img} />
+    <div className="card-title" >{productData.nombre}</div>
+        <div className="card-text">
+          {productData.categoria}
+<div className="card-text">
+          Talle {productData.talle}</div>
+          <div>Precio ${productData.precio}</div>
       <ItemCount/>
+      </div>
       </div>
       );
   }

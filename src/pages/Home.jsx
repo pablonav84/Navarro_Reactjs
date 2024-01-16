@@ -10,7 +10,7 @@ export const Home = () => {
 })
 
 //El mismo objeto que devuelve useProducts
-const {productsData} = useGetProducts(30);
+const {productsData} = useGetProducts("products");
 
   return (
     <ItemListContainer greeting="Bienvenidos a Zapas Catamarca" productsData={productsData}/>

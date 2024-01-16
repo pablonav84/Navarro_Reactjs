@@ -2,22 +2,24 @@
 //A través de esta llamada voy a traer todos los productos al dom
 
 import {useState, useEffect} from "react";
-import {getCategories, getProducts, getProductById, getProductsByCategory} from "../services";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import {getCategories, getProductsByCategory} from "../services";
+import { collection, getDocs, doc, getDoc, getFirestore } from "firebase/firestore";
 
 /**
  * @description Custom Hooks para obtener productos
  * @returns {Array}
  */
-export const useGetProducts = (C) => {
+
+
+export const useGetProducts = (collectionName = "products") => {
     const [productsData, setProductsData] = useState([]);
 
     useEffect(() => {
       const db = getFirestore();
 
-      const productCollection = collection(db, "products");
+      const productsCollection = collection(db, collectionName);
 
-      getDocs(productCollection).then((snapshot) => {
+      getDocs(productsCollection).then((snapshot) => {
         setProductsData(
           snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
         );
@@ -25,22 +27,23 @@ export const useGetProducts = (C) => {
     }, []);
 
         
-        return {productsData}
-}
+        return {productsData};
+};
 
-export const useGetProductById = (id) => {
+export const useGetProductById = (collectionName = "products", id) => {
 
-  const [productData, setProductData] = useState({});
+  const [productData, setProductData] = useState([]);
 
   useEffect(() => {
-    getProductById(id)
-    .then((response) => {
-      setProductData(response.data)
+    const db = getFirestore();
+    
+    const docRef = doc(db, collectionName, id)
+
+    getDoc(docRef).then((doc) => {
+      setProductData({ id: doc.id, ...doc.data() })
     })
-    .catch((error) => {
-      console.log(error);
-    });
-    }, []);
+
+    }, [id]);
 
     //Devuelve un objeto
     return {productData}

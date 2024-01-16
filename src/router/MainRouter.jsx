@@ -13,10 +13,10 @@ export const MainRouter = () => {
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/category/:id' element={<Category/>}/>
-            <Route path='/item/:productId' element={<ItemDetailContainer/>}/>
+            <Route path='/item/:id' element={<ItemDetailContainer/>}/>
         </Routes>
     </BrowserRouter>
   )
 }
 
-//Traigo el NavBar para que sea un hijo del MainRouterq
+//Traigo el NavBar para que sea un hijo del MainRouter
