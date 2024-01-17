@@ -1,13 +1,16 @@
-import { useParams } from 'react-router-dom';
-import ItemListContainer from '../components/itemListContainer/ItemListContainer';
-import { useGetProductsByCategory } from '../hooks/useProducts';
-
+import { useParams } from "react-router-dom";
+import ItemListContainer from "../components/itemListContainer/ItemListContainer";
+import { useGetProductsByCategory } from "../hooks/useProducts";
 
 export const Category = () => {
+  const { id } = useParams();
 
-    const {id} = useParams();
+  const { productsData } = useGetProductsByCategory(id);
 
-const {productsData} = useGetProductsByCategory(id);
-
-  return <ItemListContainer greeting="Bienvenidos a Zapas Catamarca" productsData={productsData}/>;
-}
+  return (
+    <ItemListContainer
+      greeting="Bienvenidos a Zapas Catamarca"
+      productsData={productsData}
+    />
+  );
+};

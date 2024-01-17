@@ -1,15 +1,15 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import "./CartWidget.css"
+import "./CartWidget.css";
 
 const CartWidget = () => {
-  const {count} = useContext(CartContext);
+  const { count } = useContext(CartContext);
   return (
     <div className="seeCarrito">
-        🛒
-        {count}
+      🛒
+      {count}
     </div>
-  )
-}
+  );
+};
 
-export default CartWidget
+export default CartWidget;
