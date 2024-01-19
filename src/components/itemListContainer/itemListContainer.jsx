@@ -19,7 +19,7 @@ const ItemListContainer = ({ greeting, productsData }) => {
               <div className="card-title">{products.nombre}</div>
               <div className="card-text">
                 {products.categoria}
-                <div className="card-text">Talle {products.talle}</div>
+                <div>Talle {products.talle}</div>
                 <div>Precio ${products.precio}</div>
               </div>
             </div>

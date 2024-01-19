@@ -1,5 +1,6 @@
 import { useGetProductById } from "../hooks/useProducts";
-import ItemCount from "../components/ItemCount";
+import ItemCount from "../components/ItemCount/ItemCount";
+import { LoadingComponent } from "../components/LoadingComponent/LoadingComponent";
 
 //Uso useParams para que al traer mi id sea dinamico
 import { useParams } from "react-router-dom";
@@ -9,16 +10,20 @@ export const ItemDetailContainer = () => {
 
   const { productData } = useGetProductById("products", id);
 
-  return (
-    <div className="card-content" key={productData.id}>
+  return productData.length <= 0 ? (
+    <LoadingComponent />
+  ) : (
+    <div className="card-Content">
+    <div className="card-itemDetail" key={productData.id}>
       <img className="imagen-style" src={productData.img} />
       <div className="card-title">{productData.nombre}</div>
       <div className="card-text">
         {productData.categoria}
-        <div className="card-text">Talle {productData.talle}</div>
+        <div>Talle {productData.talle}</div>
         <div>Precio ${productData.precio}</div>
         <ItemCount />
       </div>
+    </div>
     </div>
   );
 };

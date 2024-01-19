@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Button } from "react-bootstrap";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../../context/CartContext";
+import "./itemCount.css";
 
 const ItemCount = () => {
   const [countItem, setCountItem] = useState(1);
@@ -16,7 +17,7 @@ const ItemCount = () => {
 
   return (
     <div>
-      <div>
+      <div className="handle">
         <Button onClick={handleRemove}>-</Button>
         <span>{countItem}</span>
         <Button onClick={handleAdd}>+</Button>
