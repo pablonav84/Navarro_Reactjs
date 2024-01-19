@@ -2,7 +2,7 @@
 //A través de esta llamada voy a traer todos los productos al dom
 
 import { useState, useEffect } from "react";
-import { getCategories, getProductsByCategory } from "../services";
+import { getProductsByCategory } from "../services";
 import {
   collection,
   getDocs,
@@ -21,8 +21,7 @@ export const useGetProducts = (collectionName = "products") => {
 
   useEffect(() => {
     const db = getFirestore();
-
-    const productsCollection = collection(db, collectionName);
+    const productsCollection = collection(db, collectionName); //Podemos usarlo para cualquier colección
 
     getDocs(productsCollection).then((snapshot) => {
       setProductsData(
@@ -40,31 +39,32 @@ export const useGetProductById = (collectionName = "products", id) => {
   useEffect(() => {
     const db = getFirestore();
 
-    const docRef = doc(db, collectionName, id);
+    const docRef = doc(db, collectionName, id)
 
     getDoc(docRef).then((doc) => {
-      setProductData({ id: doc.id, ...doc.data() });
-    });
+      setProductData({ id: doc.id, ...doc.data() })
+    })
+
   }, [id]);
 
-  //Devuelve un objeto
   return { productData };
 };
 
-export const useGetCategories = () => {
+export const useGetCategories = (collectionName = 'categories') => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    getCategories()
-      .then((response) => {
-        setCategories(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const db = getFirestore();
+    const productsCollection = collection(db, collectionName);
+
+    getDocs(productsCollection).then((snapshot) => {
+      const categories = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+      setCategories(
+        categories[0].categories
+      );
+    });
   }, []);
 
-  //Devuelve un objeto
   return { categories };
 };
 
@@ -81,6 +81,5 @@ export const useGetProductsByCategory = (id) => {
       });
   }, [id]);
 
-  //Devuelve un objeto
   return { productsData };
 };
