@@ -11,7 +11,10 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
 
+
 const NavBarComponent = () => {
+  
+
   return (
     <Navbar expand="lg" className="bg-style navbar-dark">
       <Container>
@@ -22,10 +25,9 @@ const NavBarComponent = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/create-product">Nuevo Producto</Nav.Link>
-            <NavDropdown
-              title="Categorias"
-              id="basic-nav-dropdown"
-            ></NavDropdown>
+            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+              
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
         <CartWidget />
