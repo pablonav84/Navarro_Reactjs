@@ -13,9 +13,13 @@ const ItemListContainer = ({ greeting, productsData }) => {
         {productsData.map((products) => {
           return (
             <div className="card-content" key={products.id}>
+              <div className="item">
+                <figure>
               <Link to={`/item/${products.id}`}>
                 <img className="imagen-style" src={products.img} />
               </Link>
+              </figure>
+              </div>
               <div className="card-title">{products.nombre}</div>
               <div className="card-text">
                 {products.categoria}
