@@ -1,6 +1,6 @@
 //import de logo y estilos
 import "./NavBar.css";
-
+import logo from "/logo2.jpeg";
 
 //import de boostrap
 import Container from "react-bootstrap/Container";
@@ -13,46 +13,34 @@ import { Link } from "react-router-dom";
 import { useGetCategories } from "../../hooks/useProducts";
 
 const NavBarComponent = () => {
-  const { categories } = useGetCategories()
+  const { categories } = useGetCategories();
 
   return (
-    <header className="header">
-
-      <nav className="header-navbar">
-        
-        <ul className="navbar-list">
-          <li>
-            <Link to='/' className="navbar-link">PRODUCTS</Link>
-          </li>
-          <li>
-            <a className="navbar-link" href="#">SHOP</a>
-          </li>
-
-          <Navbar expand="lg" className="bg-body-tertiary">
-            <Container>
-              <Navbar.Toggle aria-controls="basic-navbar-nav" />
-              <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                  <NavDropdown  className="navbar-link"  title="CATEGORY" id="basic-nav-dropdown">
-                    {categories.map((category, index) => {
-                      return (
-                        <NavDropdown.Item key={index}>
-                          <Link  className="navbar-link"  key={index} to={`/category/${category}`}>
-                            {category}
-                          </Link>
-                        </NavDropdown.Item>
-                      );
-                    })}
-                  </NavDropdown>
-                </Nav>
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
-          <Link to="/create-product" className="navbar-link" >NEW PRODUCT</Link>
-        </ul>
+    <Navbar expand="lg" className="bg-style navbar-dark">
+      <Container>
+        <Link to="/">
+          <img src={logo} className="navbar-logo" alt="Zapas logo" />
+        </Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/create-product">Nuevo Producto</Nav.Link>
+            <NavDropdown title="Categorias" id="basic-nav-dropdown">
+              {categories.map((category, index) => {
+                return (
+                  <NavDropdown.Item key={index}>
+                    <Link key={index} to={`/category/${category}`}>
+                      {category}
+                    </Link>
+                  </NavDropdown.Item>
+                );
+              })}
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
         <CartWidget />
-      </nav>
-    </header>
+      </Container>
+    </Navbar>
   );
 };
 

@@ -14,16 +14,20 @@ export const ItemDetailContainer = () => {
     <LoadingComponent />
   ) : (
     <div className="card-Content">
-    <div className="card-itemDetail" key={productData.id}>
-      <img className="imagen-style" src={productData.img} />
-      <div className="card-title">{productData.nombre}</div>
-      <div className="card-text">
-        {productData.categoria}
-        <div>Talle {productData.talle}</div>
-        <div>Precio ${productData.precio}</div>
-        <ItemCount />
+      <div className="card-itemDetail" key={productData.id}>
+        <div className="item">
+          <figure>
+            <img className="imagen-style" src={productData.img} />
+          </figure>
+        </div>
+        <div className="card-title">{productData.nombre}</div>
+        <div className="card-text">
+          {productData.categoria}
+          <div>Talle {productData.talle}</div>
+          <div>Precio ${productData.precio}</div>
+          <ItemCount />
+        </div>
       </div>
-    </div>
     </div>
   );
 };
