@@ -22,7 +22,7 @@ export const ItemDetailContainer = () => {
         </div>
         <div className="card-title">{productData.nombre}</div>
         <div className="card-text">
-          {productData.categoria}
+          {productData.category}
           <div>Talle {productData.talle}</div>
           <div>Precio ${productData.precio}</div>
           <ItemCount />

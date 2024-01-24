@@ -2,7 +2,7 @@
 //A través de esta llamada voy a traer todos los productos al dom
 
 import { useState, useEffect } from "react";
-import { getProductByCategory } from "../services";
+import { getProductsByCategory } from "../services";
 import {
   collection,
   getDocs,
@@ -56,19 +56,20 @@ export const useGetProducts = (collectionName = "products") => {
     return {productData};
   };
 
-  export const useGetProductByCategory = (id) => {
+  export const useGetProductsByCategory = (id) => {
     const [productsData, setProductsData] = useState([]);
-
+  
     useEffect(() => {
-      getProductByCategory(id)
-        .then(response => {
-          setProductsData(response.data.products)
+      getProductsByCategory(id)
+        .then((response) => {
+          setProductsData(response.data.products);
         })
         .catch((error) => {
           console.log(error);
-        })
+        });
     }, [id]);
-    return { productsData }
+  
+    return { productsData };
   };
 
   export const useGetCategories = (collectionName = 'categories') => {
