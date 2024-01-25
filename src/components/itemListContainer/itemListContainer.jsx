@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-//import { LoadingComponent } from "../LoadingComponent/LoadingComponent";
+import { LoadingComponent } from "../LoadingComponent/LoadingComponent";
 import "./itemList.css";
 
 const ItemListContainer = ({ greeting, productsData }) => {
   return (
+    productsData.length<=0 ? <LoadingComponent/> :
     <div className="title-container">
       <h1 className="title">{greeting}</h1>
       <span className="paragraph">SHOES & CLOTHES IMPORT</span>
